@@ -45,6 +45,7 @@ dependencies {
     compile wpilib()
     compile navx()
     compile ctre()
+    compile pathfinder()
 }
 
 jar {
