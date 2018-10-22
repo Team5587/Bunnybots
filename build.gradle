@@ -16,12 +16,8 @@ deploy {
         // Setup a Java Artifact. Required for Java Users.
         artifact('myJava', edu.wpi.first.gradlerio.frc.FRCJavaArtifact) {
             targets << 'roborio'
-
-            jvmArgs << '-Xmx=128m'      // Set more JVM Arguments. Optional.
-            arguments << 'myCustomArgs' // The command-line arguments to launch your jar with. Optional.
             debug = getDebugOrDefault(false)                // Enable to enable java debugging on the RoboRIO. Default: false
             debugPort = 8348            // Set the debugging port. Default: 8348
-            robotCommand = './myOtherProgram'       // Set the contents of robotCommand. Optional, usually created depending on above values.
         }
     }
 }
