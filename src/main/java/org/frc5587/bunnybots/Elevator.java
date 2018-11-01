@@ -26,15 +26,16 @@ public class Elevator extends Subsystem{
         elevatorTalon.set(ControlMode.PercentOutput, -1);
     }
 
-    public void elevatorDeploy() {
+    public void elevatorForward() {
         elevatorCompressor.start();
-        elevatorSolenoid.set(true);
+        elevatorSolenoid.set(DoubleSolenoid.Value.kForward);
 
     }
 
     public void elevatorBackward() {
+        elevatorSolenoid.set(DoubleSolenoid.Value.kReverse);
         elevatorCompressor.start();
-        elevatorSolenoid.set(true);
+
     }
 
     @Override
