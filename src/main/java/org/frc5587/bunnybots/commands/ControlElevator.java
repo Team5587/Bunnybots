@@ -2,7 +2,6 @@ package org.frc5587.bunnybots.commands;
 
 import org.frc5587.bunnybots.*;
 
-import edu.wpi.first.wpilibj.command.Command;
 
 public class ControlElevator extends Command {
     Elevator elevator;
@@ -17,8 +16,12 @@ public class ControlElevator extends Command {
 
     @Override
     protected void execute() {
-        if (OI.controller.getAButtonPressed()) {
+        if (OI.controller.getBButton()) {
             Robot.elevator.elevatorUp();
+        }
+
+        else if (OI.controller.getAButton()) {
+            Robot.elevator.elevatorDown();
         }
     }
 }
