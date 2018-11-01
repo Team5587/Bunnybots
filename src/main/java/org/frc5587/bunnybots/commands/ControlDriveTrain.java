@@ -1,5 +1,4 @@
 package org.frc5587.bunnybots.commands;
-
 import org.frc5587.bunnybots.*;
 
 public class ControlDriveTrain extends Command {
@@ -15,9 +14,9 @@ public class ControlDriveTrain extends Command {
 
     @Override
     protected void execute() {
-        Robot.DriveTrain.driveTrainForward(joystick.getY());
+        Robot.driveTrain.driveTrainForward(OI.joystick.getY());
 
-        Robot.DriveTrain.driveTrainBackward(joystick.getY());
+        Robot.DriveTrain.driveTrainBackward(OI.joystick.getY());
 
     }
 }
