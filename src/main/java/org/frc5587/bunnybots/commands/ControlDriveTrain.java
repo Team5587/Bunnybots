@@ -15,12 +15,9 @@ public class ControlDriveTrain extends Command {
 
     @Override
     protected void execute() {
-        if (OI.controller.getBButton()) {
-            Robot.driveTrain.driveTrainForward();
-        }
+        Robot.DriveTrain.driveTrainForward(joystick.getY());
 
-        else if (OI.controller.getAButton()) {
-            Robot.driveTrain.driveTrainBackward();
-        }
+        Robot.DriveTrain.driveTrainBackward(joystick.getY());
+
     }
 }

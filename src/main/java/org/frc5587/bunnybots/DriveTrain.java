@@ -2,6 +2,7 @@ package org.frc5587.bunnybots;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 public class DriveTrain {
     private TalonSRX leftMaster = new TalonSRX(1);
@@ -12,8 +13,8 @@ public class DriveTrain {
     public DriveTrain() {
     }
 
-    public void driveTrainForward() {
-        leftMaster.set(ControlMode.PercentOutput, 1);
-        rightMaster.set(ControlMode.PercentOutput, 1);
+    public void driveTrainForward(double yInput) {
+        leftMaster.set(ControlMode.PercentOutput, yInput);
+        rightMaster.set(ControlMode.PercentOutput, yInput);
     }
 }
