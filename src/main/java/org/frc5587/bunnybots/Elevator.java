@@ -4,10 +4,12 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
+
 public class Elevator extends Subsystem {
 
     private TalonSRX elevatorTalon = new TalonSRX(7);
     private DoubleSolenoid elevatorSolenoid = new DoubleSolenoid(2, 3);
+    private Compressor elevatorCompressor = new Compressor();
 
     // private
 
@@ -23,11 +25,13 @@ public class Elevator extends Subsystem {
     }
 
     public void elevatorDeploy() {
+        elevatorCompressor.start();
         elevatorSolenoid.set(true);
 
     }
 
     public void elevatorBackward() {
+        elevatorCompressor.start();
         elevatorSolenoid.set(true);
     }
 
