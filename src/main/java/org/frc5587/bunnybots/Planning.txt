@@ -14,8 +14,8 @@ Aiden: !!!would there not be a ControlDriveTrain.java file bc it is constantly c
 
     Joystick:
     drive train, will likely do that next period idk
-    x-axis: forward/reverse
-    y-axis: i forget, something to do with either spin or left/right
+    y-axis: forward/reverse
+    x-axis: spin
 
 
 --- idk if you're looking at this but i figured out how to get the changes you pushed to Climber.java
