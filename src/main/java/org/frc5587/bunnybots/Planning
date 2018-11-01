@@ -1,7 +1,7 @@
 (this file isn't .java bc it's just for words)
 
 caroline: drivetrain, some elevator stuff
-Aiden: Elevator stuff, adding elevator deploy option
+Aiden: !!!would there not be a ControlDriveTrain.java file bc it is constantly controlled by joystick.getX and getY? Elevator stuff, adding elevator deploy option
 
     Xbox controller:
     A: elevator up
