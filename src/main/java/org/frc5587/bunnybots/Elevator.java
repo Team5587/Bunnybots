@@ -10,6 +10,8 @@ public class Elevator extends Subsystem {
     private TalonSRX elevatorTalon = new TalonSRX(7);
     private Solenoid elevatorSolenoid = new Solenoid(2, 3);
 
+    private
+
     public Elevator() {
     }
 
@@ -22,6 +24,11 @@ public class Elevator extends Subsystem {
     }
 
     public void elevatorDeploy() {
+        elevatorSolenoid.set(true);
+
+    }
+
+    public void elevatorBackward() {
         elevatorSolenoid.set(true);
     }
 
