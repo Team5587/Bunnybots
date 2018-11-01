@@ -16,5 +16,8 @@ public class DriveTrain {
     public void driveTrainForward(double yInput) {
         leftMaster.set(ControlMode.PercentOutput, yInput);
         rightMaster.set(ControlMode.PercentOutput, yInput);
+        leftSlave.set(ControlMode.PercentOutput, yInput);
+        rightSlave.set(ControlMode.PercentOutput, yInput);
     }
+
 }
