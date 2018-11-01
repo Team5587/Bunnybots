@@ -4,6 +4,8 @@ caroline: drivetrain ig?
 Aiden: 
 
 Xbox controller:
+A: elevator up
+B: elevator down
 X = Grabbers spin inwards
 Y = Grabbers spin outwards
 Right Bumper = Grabbers open
@@ -11,4 +13,6 @@ Left Bumper = Grabbers close
 Right Stick Button = Climber up
 
 Joystick:
-?
+// drive train, will likely do that next period idk
+x-axis: forward/reverse
+y-axis: i forget, something to do with either spin or left/right
