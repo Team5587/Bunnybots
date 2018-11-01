@@ -7,18 +7,22 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Elevator extends Subsystem {
 
-    private TalonSRX motorController = new TalonSRX(7);
-    private Solenoid solenoid = new Solenoid(2, 3);
+    private TalonSRX elevatorTalon = new TalonSRX(7);
+    private Solenoid elevatorSolenoid = new Solenoid(2, 3);
 
     public Elevator() {
     }
 
     public void elevatorUp() {
-        motorController.set(ControlMode.PercentOutput, 1);
+        elevatorTalon.set(ControlMode.PercentOutput, 1);
     }
 
     public void elevatorDown() {
-        motorController.set(ControlMode.PercentOutput, -1);
+        elevatorTalon.set(ControlMode.PercentOutput, -1);
+    }
+
+    public void elevatorDeploy() {
+        elevatorSolenoid.set(true);
     }
 
     @Override
