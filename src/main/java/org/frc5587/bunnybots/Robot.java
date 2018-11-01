@@ -28,6 +28,7 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static Elevator elevator = new Elevator();
   public static Grabbers grabbers = new Grabbers();
+  public static Climber climber = new Climber();
 
   /**
    * This function is run when the robot is first started up and should be used
@@ -92,6 +93,7 @@ public class Robot extends TimedRobot {
   public void teleopInit() {
     new ControlElevator().start();
     new ControlGrabbers().start();
+    new ControlClimber().start();
   }
 
   /**
