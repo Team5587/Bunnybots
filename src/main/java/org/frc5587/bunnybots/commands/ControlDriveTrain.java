@@ -15,7 +15,5 @@ public class ControlDriveTrain extends Command {
     protected void execute() {
         Robot.driveTrain.driveTrainForward(OI.joystick.getY());
 
-        Robot.DriveTrain.driveTrainBackward(OI.joystick.getY());
-
     }
 }
