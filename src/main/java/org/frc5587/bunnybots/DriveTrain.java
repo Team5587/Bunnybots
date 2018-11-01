@@ -13,7 +13,7 @@ public class DriveTrain {
     public DriveTrain() {
     }
 
-    public void driveTrainForward(double yInput) {
+    public void driveTrainMove(double yInput) {
         leftMaster.set(ControlMode.PercentOutput, yInput);
         rightMaster.set(ControlMode.PercentOutput, yInput);
         leftSlave.set(ControlMode.PercentOutput, yInput);
