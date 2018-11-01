@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.frc5587.robot2018;
+package org.frc5587.bunnybots;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into

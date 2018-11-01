@@ -9,6 +9,9 @@ package org.frc5587.bunnybots;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import org.frc5587.bunnybots.commands.*;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 
 /**
@@ -24,6 +27,7 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static Elevator elevator = new Elevator();
+  public static Grabbers grabbers = new Grabbers();
 
   /**
    * This function is run when the robot is first started up and should be used
@@ -87,6 +91,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopInit() {
     new ControlElevator().start();
+    new ControlGrabbers().start();
   }
 
   /**
