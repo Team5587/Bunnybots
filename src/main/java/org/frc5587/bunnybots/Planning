@@ -3,21 +3,21 @@
 caroline: drivetrain, some elevator stuff
 Aiden: Elevator stuff, adding elevator deploy option
 
-Xbox controller:
-A: elevator up
-B: elevator down
-X = Grabbers spin inwards
-Y = Grabbers spin outwards
-Right Bumper = Grabbers open
-Left Bumper = Grabbers close
-Right Stick Button = Climber up (There should be a better way to do this)
+    Xbox controller:
+    A: elevator up
+    B: elevator down
+    X = Grabbers spin inwards
+    Y = Grabbers spin outwards
+    Right Bumper = Grabbers open
+    Left Bumper = Grabbers close
+    Right Stick Button = Climber up (There should be a better way to do this)
 
-Joystick:
-drive train, will likely do that next period idk
-x-axis: forward/reverse
-y-axis: i forget, something to do with either spin or left/right
+    Joystick:
+    drive train, will likely do that next period idk
+    x-axis: forward/reverse
+    y-axis: i forget, something to do with either spin or left/right
 
 
-idk if you're looking at this but i figured out how to get the changes you pushed to Climber.java
+--- idk if you're looking at this but i figured out how to get the changes you pushed to Climber.java
 
 //elevator forward backward, test

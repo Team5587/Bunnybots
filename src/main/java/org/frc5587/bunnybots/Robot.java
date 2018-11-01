@@ -94,6 +94,7 @@ public class Robot extends TimedRobot {
     new ControlElevator().start();
     new ControlGrabbers().start();
     new ControlClimber().start();
+    new ControlDriveTrain().start();
   }
 
   /**
@@ -101,7 +102,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    
+
   }
 
   /**
