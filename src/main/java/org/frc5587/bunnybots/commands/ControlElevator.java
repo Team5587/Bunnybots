@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.command.Command;
 
 
 public class ControlElevator extends Command {
-    Elevator elevator;
 
     public ControlElevator() {
     }

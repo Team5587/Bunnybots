@@ -2,7 +2,6 @@ package org.frc5587.bunnybots.commands;
 import org.frc5587.bunnybots.*;
 
 public class ControlDriveTrain extends Command {
-    DriveTrain driveTrain;
 
     public ControlDriveTrain() {
     }
