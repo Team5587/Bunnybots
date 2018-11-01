@@ -1,7 +1,7 @@
 (this file isn't .java bc it's just for words)
 
 caroline: drivetrain ig?
-Aiden: 
+Aiden: Elevator stuff, adding elevator deploy option
 
 Xbox controller:
 A: elevator up
@@ -10,10 +10,10 @@ X = Grabbers spin inwards
 Y = Grabbers spin outwards
 Right Bumper = Grabbers open
 Left Bumper = Grabbers close
-Right Stick Button = Climber up
+Right Stick Button = Climber up (There should be a better way to do this)
 
 Joystick:
-// drive train, will likely do that next period idk
+drive train, will likely do that next period idk
 x-axis: forward/reverse
 y-axis: i forget, something to do with either spin or left/right
 
