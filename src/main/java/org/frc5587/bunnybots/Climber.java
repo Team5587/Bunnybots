@@ -2,7 +2,6 @@ package org.frc5587.bunnybots;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Climber extends Subsystem{
