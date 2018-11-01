@@ -95,7 +95,7 @@ public class Robot extends TimedRobot {
     new ControlElevator().start();
     new ControlGrabbers().start();
     new ControlClimber().start();
-   // new ControlDriveTrain().start();
+    new ControlDriveTrain().start();
   }
 
   /**
