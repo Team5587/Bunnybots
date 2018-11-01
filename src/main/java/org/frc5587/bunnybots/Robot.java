@@ -29,6 +29,7 @@ public class Robot extends TimedRobot {
   public static Elevator elevator = new Elevator();
   public static Grabbers grabbers = new Grabbers();
   public static Climber climber = new Climber();
+  public static DriveTrain driveTrain = new DriveTrain();
 
   /**
    * This function is run when the robot is first started up and should be used
@@ -94,7 +95,7 @@ public class Robot extends TimedRobot {
     new ControlElevator().start();
     new ControlGrabbers().start();
     new ControlClimber().start();
-    new ControlDriveTrain().start();
+   // new ControlDriveTrain().start();
   }
 
   /**
