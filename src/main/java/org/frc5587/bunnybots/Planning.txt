@@ -1,4 +1,5 @@
-(this file isn't .java bc it's just for words)
+
+Would DriveTrain.java extend subsystem??
 
 caroline: drivetrain, some elevator stuff
 Aiden:
