@@ -18,7 +18,3 @@ Aiden:
     drive train, will likely do that next period idk
     y-axis: forward/reverse
     x-axis: spin
-
-
-
-//elevator forward backward, test
