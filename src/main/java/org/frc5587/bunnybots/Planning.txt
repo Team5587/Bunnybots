@@ -8,13 +8,12 @@ Aiden:
     Xbox controller:
     A: elevator up
     B: elevator down
-    X = Grabbers spin inwards
-    Y = Grabbers spin outwards
-    Right Bumper = Grabbers open
-    Left Bumper = Grabbers close
-    Right Stick Button = Climber up (There should be a better way to do this)
+    X: Grabbers spin inwards
+    Y: Grabbers spin outwards
+    Right Bumper: Grabbers open
+    Left Bumper: Grabbers close
+    Right Stick Button: Climber up (There should be a better way to do this)
 
     Joystick:
-    drive train, will likely do that next period idk
-    y-axis: forward/reverse
-    x-axis: spin
+    y-axis: forward/reverse (drivetrain)
+    x-axis: spin (drivetrain)
