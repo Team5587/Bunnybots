@@ -17,9 +17,9 @@ public class DriveTrain extends Subsystem {
 
     public void driveTrainMove(double yInput) {
         leftMaster.set(ControlMode.PercentOutput, yInput);
-        rightMaster.set(ControlMode.PercentOutput, yInput);
+        rightMaster.set(ControlMode.PercentOutput, -yInput);
         leftSlave.set(ControlMode.PercentOutput, yInput);
-        rightSlave.set(ControlMode.PercentOutput, yInput);
+        rightSlave.set(ControlMode.PercentOutput, -yInput);
     }
 
     @Override
