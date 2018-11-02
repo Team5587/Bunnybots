@@ -1,7 +1,8 @@
 
 Would DriveTrain.java extend subsystem??
+yes
 
-caroline: drivetrain, some elevator stuff
+caroline:
 Aiden:
 
     Xbox controller:
@@ -19,6 +20,5 @@ Aiden:
     x-axis: spin
 
 
---- idk if you're looking at this but i figured out how to get the changes you pushed to Climber.java
-    Awesome!
+
 //elevator forward backward, test
