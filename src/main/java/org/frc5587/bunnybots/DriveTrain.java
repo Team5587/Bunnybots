@@ -4,7 +4,9 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
-public class DriveTrain {
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+public class DriveTrain extends Subsystem {
     private TalonSRX leftMaster = new TalonSRX(1);
     private TalonSRX rightMaster = new TalonSRX(2);
     private VictorSPX leftSlave = new VictorSPX(3);
