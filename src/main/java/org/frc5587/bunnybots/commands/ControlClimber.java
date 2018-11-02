@@ -5,7 +5,7 @@ import org.frc5587.bunnybots.*;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ControlClimber extends Command{
+public class ControlClimber extends Command {
 
     public ControlClimber() {
 

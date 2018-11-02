@@ -5,7 +5,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class Grabbers extends Subsystem{
+public class Grabbers extends Subsystem {
 
     public Grabbers(){
 

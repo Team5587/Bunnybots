@@ -1,4 +1,3 @@
-
 Would DriveTrain.java extend subsystem??
 yes
 
@@ -6,14 +5,14 @@ caroline:
 Aiden:
 
     Xbox controller:
-    A: elevator up
-    B: elevator down
-    X: Grabbers spin inwards
-    Y: Grabbers spin outwards
-    Right Bumper: Grabbers open
-    Left Bumper: Grabbers close
-    Right Stick Button: Climber up (There should be a better way to do this)
+    A - elevator up
+    B - elevator down
+    X - Grabbers spin inwards
+    Y - Grabbers spin outwards
+    Right Bumper - Grabbers open
+    Left Bumper - Grabbers close
+    Right Stick Button - Climber up (There should be a better way to do this -- wdym, like a better control that can be used?)
 
     Joystick:
-    y-axis: forward/reverse (drivetrain)
-    x-axis: spin (drivetrain)
+    y-axis - forward/reverse (drivetrain)
+    x-axis - spin (drivetrain)

@@ -15,6 +15,7 @@ public class DriveTrain extends Subsystem {
     public DriveTrain() {
     }
 
+    // might need to be flipped, depending on how the motors are set up
     public void driveTrainMove(double yInput) {
         leftMaster.set(ControlMode.PercentOutput, yInput);
         rightMaster.set(ControlMode.PercentOutput, -yInput);
@@ -24,8 +25,8 @@ public class DriveTrain extends Subsystem {
 
     // i kinda forget how this is supposed to work (the motor directions)
     public void driveTrainSpin(double xInput) {
-        leftMaster.set(ControlMode.PercentOutput, xInput);
-        rightMaster.set(ControlMode.PercentOutput, -xInput);
+        leftMaster.set(ControlMode.PercentOutput, -xInput);
+        rightMaster.set(ControlMode.PercentOutput, xInput);
         leftSlave.set(ControlMode.PercentOutput, xInput);
         rightSlave.set(ControlMode.PercentOutput, -xInput);
     }

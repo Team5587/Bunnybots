@@ -23,7 +23,6 @@ public class ControlElevator extends Command {
 
         else if (OI.controller.getAButtonPressed()) {
             Robot.elevator.elevatorDown();
-            System.out.println("else if");
         }
     }
 }
