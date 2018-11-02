@@ -16,6 +16,7 @@ public class ControlDriveTrain extends Command {
     @Override
     protected void execute() {
         Robot.driveTrain.driveTrainMove(OI.joystick.getY());
+        Robot.driveTrain.driveTrainSpin(OI.joystick.getX());
 
     }
 }

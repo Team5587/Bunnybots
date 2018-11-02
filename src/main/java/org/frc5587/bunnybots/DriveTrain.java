@@ -22,6 +22,14 @@ public class DriveTrain extends Subsystem {
         rightSlave.set(ControlMode.PercentOutput, -yInput);
     }
 
+    // i kinda forget how this is supposed to work (the motor directions)
+    public void driveTrainSpin(double xInput) {
+        leftMaster.set(ControlMode.PercentOutput, xInput);
+        rightMaster.set(ControlMode.PercentOutput, -xInput);
+        leftSlave.set(ControlMode.PercentOutput, xInput);
+        rightSlave.set(ControlMode.PercentOutput, -xInput);
+    }
+
     @Override
     protected void initDefaultCommand() {
         
