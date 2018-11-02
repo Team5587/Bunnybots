@@ -22,4 +22,9 @@ public class DriveTrain extends Subsystem {
         rightSlave.set(ControlMode.PercentOutput, yInput);
     }
 
+    @Override
+    protected void initDefaultCommand() {
+        
+    }
+
 }
