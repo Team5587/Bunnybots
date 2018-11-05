@@ -11,8 +11,8 @@ sd = NetworkTables.getTable("SmartDashboard")
 
 # cam0 = cv2.VideoCapture(0)
 cam1 = cv2.VideoCapture(1)
-cam2 = cv2.VideoCapture(2)
-cam3 = cv2.VideoCapture(3)
+# cam2 = cv2.VideoCapture(2)
+# cam3 = cv2.VideoCapture(3)
 
 #Lower color limit for red: 
 lowerRed = np.array([169, 100, 100])
@@ -46,25 +46,23 @@ def findColors(frame, camNum):
     #if there are contorurs, find the biggest one and draw it
     if len(red_contour_sizes) > 0:
         red = True
-        # sendColor(Red)
 
     if len(blue_contour_sizes) > 0:
         blue = True
-        # sendColor(Blue)
     
-    sd.putBoolean("Camera" + str(camNum) + " Red", red)
-    sd.putBoolean("Camera" + str(camNum) + " Blue", blue)
+    sd.putBoolean("Camera " + str(camNum) + " Red", red)
+    sd.putBoolean("Camera " + str(camNum) + " Blue", blue)
 
 while True:
     # _, cam0Frame = cam0.read()
     _, cam1Frame = cam1.read()
-    _, cam2Frame = cam2.read()
-    _, cam3Frame = cam3.read()
+    # _, cam2Frame = cam2.read()
+    # _, cam3Frame = cam3.read()
 
-    findColors(cam0Frame, 0)
+    # findColors(cam0Frame, 0)
     findColors(cam1Frame, 1)
-    findColors(cam2Frame, 2)
-    findColors(cam3Frame, 3)
+    # findColors(cam2Frame, 2)
+    # findColors(cam3Frame, 3)
 
     print("Camera 1 ")
     #if the key 'q' is pressed, exit while loop
@@ -73,7 +71,7 @@ while True:
 
 # cam0.release()   
 cam1.release()
-cam2.release()
-cam3.release()
+# cam2.release()
+# cam3.release()
 
 cv2.destroyAllWindows()
