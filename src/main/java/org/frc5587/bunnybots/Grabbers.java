@@ -15,21 +15,26 @@ public class Grabbers extends Subsystem {
     private TalonSRX leftTalon = new TalonSRX(6), rightTalon = new TalonSRX(5);
 
     public void grabberOpen(){
-        expanderSolenoid.set(DoubleSolenoid.Value.kForward);
-    }
-
-    public void grabberClose(){
         expanderSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
 
+    public void grabberClose(){
+        expanderSolenoid.set(DoubleSolenoid.Value.kForward);
+    }
+
     public void grabberIn(){
-        leftTalon.set(ControlMode.PercentOutput, 1);
-        rightTalon.set(ControlMode.PercentOutput, -1);
+        leftTalon.set(ControlMode.PercentOutput, .7);
+        rightTalon.set(ControlMode.PercentOutput, -.7);
     }
 
     public void grabberOut(){
-        leftTalon.set(ControlMode.PercentOutput, -1);
-        rightTalon.set(ControlMode.PercentOutput, 1);
+        leftTalon.set(ControlMode.PercentOutput, -.7);
+        rightTalon.set(ControlMode.PercentOutput, .7);
+    }
+
+    public void grabberStop() {
+        leftTalon.set(ControlMode.PercentOutput, 0);
+        rightTalon.set(ControlMode.PercentOutput, 0);
     }
 
     @Override

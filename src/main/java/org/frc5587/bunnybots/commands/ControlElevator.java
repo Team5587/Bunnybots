@@ -17,12 +17,15 @@ public class ControlElevator extends Command {
 
     @Override
     protected void execute() {
-        if (OI.controller.getBButtonPressed()) {
+        if (OI.controller.getBButton()) {
             Robot.elevator.elevatorUp();
-        }
 
-        else if (OI.controller.getAButtonPressed()) {
+        } 
+        else if (OI.controller.getAButton()) {
             Robot.elevator.elevatorDown();
+        } else {
+            Robot.elevator.elevatorStop();
         }
+    
     }
 }

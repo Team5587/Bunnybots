@@ -39,6 +39,9 @@ public class Elevator extends Subsystem{
 
     }
 
+    public void elevatorStop() {
+        elevatorTalon.set(ControlMode.PercentOutput, 0.15);
+    }
     @Override
     protected void initDefaultCommand() {
 

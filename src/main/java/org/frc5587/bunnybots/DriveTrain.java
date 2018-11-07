@@ -13,16 +13,29 @@ public class DriveTrain extends Subsystem {
     private VictorSPX rightSlave = new VictorSPX(4);
 
     public DriveTrain() {
+        leftSlave.follow(leftMaster);
+        rightSlave.follow(rightMaster);
     }
 
+    
     // might need to be flipped, depending on how the motors are set up
+    
     public void driveTrainMove(double yInput) {
-        leftMaster.set(ControlMode.PercentOutput, yInput);
-        rightMaster.set(ControlMode.PercentOutput, -yInput);
-        leftSlave.set(ControlMode.PercentOutput, yInput);
-        rightSlave.set(ControlMode.PercentOutput, -yInput);
+        leftMaster.set(ControlMode.PercentOutput, -yInput);
+        rightMaster.set(ControlMode.PercentOutput, yInput);
     }
 
+    public void driveTrainSpin(double xInput) {
+        leftMaster.set(ControlMode.PercentOutput, xInput);
+        rightMaster.set(ControlMode.PercentOutput, xInput);
+    }
+    
+    public void driveTrainSpinAndMove(double leftIn, double rightIn) {
+        leftMaster.set(ControlMode.PercentOutput, leftIn);
+        rightMaster.set(ControlMode.PercentOutput, rightIn);
+    }
+    
+    /*
     // i kinda forget how this is supposed to work (the motor directions)
     public void driveTrainSpin(double xInput) {
         leftMaster.set(ControlMode.PercentOutput, -xInput);
@@ -30,6 +43,7 @@ public class DriveTrain extends Subsystem {
         leftSlave.set(ControlMode.PercentOutput, xInput);
         rightSlave.set(ControlMode.PercentOutput, -xInput);
     }
+    */
 
     @Override
     protected void initDefaultCommand() {

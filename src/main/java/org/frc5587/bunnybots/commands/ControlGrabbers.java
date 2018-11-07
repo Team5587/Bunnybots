@@ -19,18 +19,20 @@ public class ControlGrabbers extends Command{
 
     @Override
     protected void execute() {
-        if (OI.controller.getYButtonPressed()) {
+        if (OI.controller.getYButton()) {
             Robot.grabbers.grabberOut();
-        }
-        if(OI.controller.getXButtonPressed()) {
+        } else if(OI.controller.getXButton()) {
             Robot.grabbers.grabberIn();
+        } else {
+            Robot.grabbers.grabberStop();
         }
+
+
         if(OI.controller.getBumper(Hand.kRight)) {
             Robot.grabbers.grabberOpen();
-        }
-        if(OI.controller.getBumper(Hand.kLeft)) {
+        } else{
             Robot.grabbers.grabberClose();
-        }
+        } 
     }
     
 }
