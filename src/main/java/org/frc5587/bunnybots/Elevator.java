@@ -33,8 +33,9 @@ public class Elevator extends Subsystem{
     }
 
     public void elevatorBackward() {
-        elevatorSolenoid.set(DoubleSolenoid.Value.kReverse);
         elevatorCompressor.start();
+        elevatorSolenoid.set(DoubleSolenoid.Value.kReverse);
+        
 
     }
 
