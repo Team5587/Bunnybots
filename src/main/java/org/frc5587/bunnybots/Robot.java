@@ -41,7 +41,7 @@ public class Robot extends TimedRobot {
     m_chooser.addObject("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
   }
-
+  
   /**
    * This function is called every robot packet, no matter the mode. Use this for
    * items like diagnostics that you want ran during disabled, autonomous,
@@ -94,7 +94,7 @@ public class Robot extends TimedRobot {
   public void teleopInit() {
     new ControlElevator().start();
     new ControlGrabbers().start();
-    //new ControlDriveTrain().start();
+    new ControlDriveTrain().start();
   }
 
   /**

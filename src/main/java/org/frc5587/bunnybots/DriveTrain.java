@@ -34,16 +34,12 @@ public class DriveTrain extends Subsystem {
         leftMaster.set(ControlMode.PercentOutput, leftIn);
         rightMaster.set(ControlMode.PercentOutput, rightIn);
     }
+
     
-    /*
-    // i kinda forget how this is supposed to work (the motor directions)
-    public void driveTrainSpin(double xInput) {
-        leftMaster.set(ControlMode.PercentOutput, -xInput);
-        rightMaster.set(ControlMode.PercentOutput, xInput);
-        leftSlave.set(ControlMode.PercentOutput, xInput);
-        rightSlave.set(ControlMode.PercentOutput, -xInput);
+    public static double turnMag(double xIn, double yIn) {
+        double turnAmt = (Math.abs(yIn) + Math.abs(xIn)) * (yIn / Math.abs(yIn));
+        return turnAmt;
     }
-    */
 
     @Override
     protected void initDefaultCommand() {
