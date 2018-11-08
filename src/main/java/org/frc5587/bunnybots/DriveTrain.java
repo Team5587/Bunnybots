@@ -1,6 +1,7 @@
 package org.frc5587.bunnybots;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
@@ -12,9 +13,14 @@ public class DriveTrain extends Subsystem {
     private VictorSPX leftSlave = new VictorSPX(3);
     private VictorSPX rightSlave = new VictorSPX(4);
 
+    private static double percentDecrease = .7;
+
     public DriveTrain() {
+        leftMaster.setNeutralMode(NeutralMode.Brake);
+        rightMaster.setNeutralMode(NeutralMode.Brake);
         leftSlave.follow(leftMaster);
         rightSlave.follow(rightMaster);
+        
     }
 
     
@@ -31,14 +37,19 @@ public class DriveTrain extends Subsystem {
     }
     
     public void driveTrainSpinAndMove(double leftIn, double rightIn) {
-        leftMaster.set(ControlMode.PercentOutput, leftIn);
+        leftMaster.set(ControlMode.PercentOutput, -leftIn);
         rightMaster.set(ControlMode.PercentOutput, rightIn);
     }
 
     
     public static double turnMag(double xIn, double yIn) {
-        double turnAmt = (Math.abs(yIn) + Math.abs(xIn)) * (yIn / Math.abs(yIn));
+        double turnAmt = (Math.abs(yIn * percentDecrease) + Math.abs(xIn * (2 - percentDecrease))) * (yIn / Math.abs(yIn));
         return turnAmt;
+    }
+
+    public static double moveMag(double yIn) {
+        yIn *= percentDecrease;
+        return yIn;
     }
 
     @Override
