@@ -6,7 +6,7 @@ import numpy as np
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
-NetworkTables.initialize()
+NetworkTables.initialize(172.22.11.2)
 sd = NetworkTables.getTable("SmartDashboard")
 
 # cam0 = cv2.VideoCapture(0)

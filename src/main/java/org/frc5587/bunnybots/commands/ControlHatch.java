@@ -1,10 +1,9 @@
 package org.frc5587.bunnybots.commands;
 
 import edu.wpi.first.wpilibj.Joystick;
-
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.frc5587.bunnybots.OI;
@@ -15,18 +14,15 @@ public class  ControlHatch extends Command{
     DoubleSolenoid hatch;
     Joystick jb;
     Compressor c;
-    NetworkTableEntry redEntry, blueEntry;
+    // NetworkTableEntry redEntry, blueEntry;
     Boolean red, blue;
-
-    // SendableChooser colorToSort = new SendableChooser();
-
     
     public ControlHatch(){
        hatch = new DoubleSolenoid(0,1);
-       NetworkTableInstance inst = NetworkTableInstance.getDefault();
-       NetworkTable table = inst.getTable("SmartDashboard");
-       blueEntry = table.getEntry("Camera 1 Red");
-       redEntry = table.getEntry("Camera 1 Blue");
+    //    NetworkTableInstance inst = NetworkTableInstance.getDefault();
+    //    NetworkTable table = inst.getTable("SmartDashboard");
+    //    blueEntry = table.getEntry("Camera 1 Red");
+    //    redEntry = table.getEntry("Camera 1 Blue");
     }
 
     protected void initialize() {
@@ -36,14 +32,19 @@ public class  ControlHatch extends Command{
     }
 
     protected void execute() {
-       red = redEntry.getBoolean(false);
-       blue = blueEntry.getBoolean(false);
+    //    red = redEntry.getBoolean(false);
+    //    blue = blueEntry.getBoolean(false);
+        red = SmartDashboard.getBoolean("red", false);
+        blue = SmartDashboard.getBoolean("blue", false);
 
-       if(red){
+        SmartDashboard.putBoolean("Blue on RIO", blue);
+        SmartDashboard.putBoolean("Red on RIO", red);
+
+        hatch.set(DoubleSolenoid.Value.kForward);
+
+        if(red){
             hatch.set(DoubleSolenoid.Value.kReverse);
-       }else if(blue){
-           hatch.set(DoubleSolenoid.Value.kForward);
-       }
+        }
    }
 
     protected boolean isFinished() {
