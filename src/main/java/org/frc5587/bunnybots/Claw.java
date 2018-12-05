@@ -5,7 +5,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Claw extends Subsystem {
 
-    public DoubleSolenoid pistonClaw = new DoubleSolenoid(1, 2);
+
+    public DoubleSolenoid pistonClaw = new DoubleSolenoid(RobotMap.OriginalClaw.PISTON_CLAW[0], RobotMap.OriginalClaw.PISTON_CLAW[1] );
 
     public Claw() {
 

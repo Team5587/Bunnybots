@@ -25,6 +25,7 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   private static final Compressor compressor = new Compressor();
+  public static final Claw claw = new Claw();
 
   /**
    * This function is run when the robot is first started up and should be
@@ -36,6 +37,7 @@ public class Robot extends TimedRobot {
     m_chooser.addObject("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
     compressor.start();
+    new ControlClaw().start();    
   }
 
   /**
