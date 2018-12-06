@@ -4,10 +4,7 @@ import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Door extends Subsystem {
-    /* 
-    "servo" means "i save" in latin, which is entirely irrelevant 
-    but @isabel an example of a useless use for taking latin 
-    */
+   
     private Servo servo = new Servo(RobotMap.Door.SERVO);
 
     public Door() {
