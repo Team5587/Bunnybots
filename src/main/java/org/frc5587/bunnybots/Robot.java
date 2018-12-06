@@ -28,6 +28,7 @@ public class Robot extends TimedRobot {
   private static final Compressor compressor = new Compressor();
   public static final Claw claw = new Claw();
   public static final Door door = new Door();
+  public static final Intake intake = new Intake();
 
   /**
    * This function is run when the robot is first started up and should be
@@ -91,6 +92,7 @@ public class Robot extends TimedRobot {
   public void teleopInit() {
     new ControlClaw().start();
     new ControlDoor().start();
+    new ControlIntake().start();
   }
   
   /**
