@@ -1,6 +1,5 @@
 package org.frc5587.bunnybots;
 
-
 import org.frc5587.lib.TitanDrive;
 import org.frc5587.lib.TitanDrive.DriveSignal;
 

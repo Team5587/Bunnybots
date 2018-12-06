@@ -15,5 +15,5 @@ public class RobotMap {
         public static final int LEFT_SLAVE = 3;
         public static final int RIGHT_SLAVE = 4;
     }
-    
+
 }

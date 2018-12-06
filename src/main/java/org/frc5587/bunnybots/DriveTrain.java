@@ -31,7 +31,7 @@ public class DriveTrain extends Subsystem {
         leftSlave.set(leftMaster.getMotorOutputPercent());
         rightSlave.set(rightMaster.getMotorOutputPercent());
     }
-    
+
     public void vbusLR(double leftIn, double rightIn) {
         leftMaster.set(ControlMode.PercentOutput, -leftIn);
         rightMaster.set(ControlMode.PercentOutput, rightIn);
@@ -41,7 +41,7 @@ public class DriveTrain extends Subsystem {
 
     @Override
     protected void initDefaultCommand() {
-        
+
     }
 
 }
