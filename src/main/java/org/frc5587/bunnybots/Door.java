@@ -14,7 +14,7 @@ public class Door extends Subsystem {
 
     }
 
-    // servos can be set in either degrees or pwm (0.0 - 0.1)
+    // servos can be set in either degrees or pwm (0.0 - 1.0)
     public void doorClose() {
         servo.set(0.0);
     }
