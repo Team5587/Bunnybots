@@ -18,4 +18,9 @@ public class RobotMap {
         // pwm channel to which the servo is connected
         public static final int SERVO = 1;
     }
+
+    public static class Intake {
+        // change CAN ID later when we know where it actually is
+        public static final int TALON = 2;
+    }
 }
