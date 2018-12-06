@@ -8,12 +8,12 @@ public class ControlClaw extends Command {
 
     }
 
+    @Override
     protected void execute() {
 
         if (OI.controller.getBButtonPressed()) {
             Robot.claw.clawClose();
-        } 
-        else if (OI.controller.getXButtonPressed()) {
+        } else if (OI.controller.getXButtonPressed()) {
             Robot.claw.clawOpen();
         }
     }

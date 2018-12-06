@@ -27,6 +27,7 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   private static final Compressor compressor = new Compressor();
   public static final Claw claw = new Claw();
+  public static final Door door = new Door();
 
   /**
    * This function is run when the robot is first started up and should be
@@ -89,6 +90,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopInit() {
     new ControlClaw().start();
+    new ControlDoor().start();
   }
   
   /**
