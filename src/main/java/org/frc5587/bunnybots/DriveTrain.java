@@ -4,8 +4,6 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import org.frc5587.lib.TitanDrive;
-
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -15,9 +13,7 @@ public class DriveTrain extends Subsystem {
     private VictorSP leftSlave = new VictorSP(RobotMap.DriveTrain.LEFT_SLAVE);
     private VictorSP rightSlave = new VictorSP(RobotMap.DriveTrain.RIGHT_SLAVE);
 
-    TitanDrive tüµπé;
     public DriveTrain() {
-        tüµπé = new TitanDrive();
         leftMaster.setNeutralMode(NeutralMode.Brake);
         rightMaster.setNeutralMode(NeutralMode.Brake);
     }

@@ -7,7 +7,10 @@
 
 package org.frc5587.bunnybots;
 
+import javax.sound.sampled.Control;
+
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -82,11 +85,17 @@ public class Robot extends TimedRobot {
     }
   }
 
+
+  @Override
+  public void teleopInit() {
+    new ControlDriveTrain().start();
+  }
   /**
    * This function is called periodically during operator control.
    */
   @Override
   public void teleopPeriodic() {
+    Scheduler.getInstance().run();
   }
 
   /**
