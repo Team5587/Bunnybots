@@ -20,23 +20,27 @@ public class DriveTrain extends Subsystem {
         tüµπé = new TitanDrive();
         leftMaster.setNeutralMode(NeutralMode.Brake);
         rightMaster.setNeutralMode(NeutralMode.Brake);
-        leftSlave.set(leftMaster.getMotorOutputPercent());
-        rightSlave.set(rightMaster.getMotorOutputPercent());
     }
 
     public void driveTrainMove(double yInput) {
         leftMaster.set(ControlMode.PercentOutput, -yInput);
         rightMaster.set(ControlMode.PercentOutput, yInput);
+        leftSlave.set(leftMaster.getMotorOutputPercent());
+        rightSlave.set(rightMaster.getMotorOutputPercent());
     }
 
     public void driveTrainSpin(double xInput) {
         leftMaster.set(ControlMode.PercentOutput, xInput);
         rightMaster.set(ControlMode.PercentOutput, xInput);
+        leftSlave.set(leftMaster.getMotorOutputPercent());
+        rightSlave.set(rightMaster.getMotorOutputPercent());
     }
     
-    public void driveTrainSpinAndMove(double leftIn, double rightIn) {
+    public void vbusLR(double leftIn, double rightIn) {
         leftMaster.set(ControlMode.PercentOutput, -leftIn);
         rightMaster.set(ControlMode.PercentOutput, rightIn);
+        leftSlave.set(leftMaster.getMotorOutputPercent());
+        rightSlave.set(rightMaster.getMotorOutputPercent());
     }
 
     @Override
