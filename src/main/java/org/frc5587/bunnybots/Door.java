@@ -6,20 +6,21 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Door extends Subsystem {
    
     private Servo servo = new Servo(RobotMap.Door.SERVO);
+    private static final double openAngle = 135;
+    private static final double closedAngle = 0;
 
     public Door() {
 
     }
 
-    // servos can be set in either degrees or pwm (0.0 - 1.0)
+    // servos can be set in either degrees (~ 0 - 180) or pwm (0.0 - 1.0)
     public void doorClose() {
-        // figure out how servos determine angle (is it relative, or are the angle values set)
-        servo.setAngle((servo.getAngle() - 120));
+        servo.setAngle(closedAngle);
         // servo.set(0.0);
     }
 
     public void doorOpen() {
-        servo.setAngle((servo.getAngle() + 120));
+        servo.setAngle(openAngle);
         // servo.set(1.0);
     }
 
