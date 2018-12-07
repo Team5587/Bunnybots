@@ -3,7 +3,6 @@ package org.frc5587.bunnybots;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class ControlDoor extends Command {
-    private boolean open = false;
 
     public ControlDoor() {
         requires(Robot.door);
@@ -16,12 +15,10 @@ public class ControlDoor extends Command {
 
     @Override
     protected void execute() {
-        if (OI.controller.getAButtonPressed() && open) {
-            Robot.door.doorClose();
-            open = false;
-        } else if (OI.controller.getAButtonPressed() && !open) {
+        if (OI.controller.getAButton()) {
             Robot.door.doorOpen();
-            open = true;
+        } else {
+            Robot.door.doorClose();
         }
     }
 
