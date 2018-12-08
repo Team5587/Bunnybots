@@ -7,6 +7,10 @@
 
 package org.frc5587.bunnybots;
 
+import org.frc5587.bunnybots.commands.ControlDoor;
+import org.frc5587.bunnybots.commands.ControlClaw;
+import org.frc5587.bunnybots.commands.ControlIntake;
+
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;

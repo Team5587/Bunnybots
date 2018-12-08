@@ -5,6 +5,7 @@ public class RobotMap {
 
     public static class Claw {
         public static final int[] PISTON_CLAW = { 1, 2 };
+        public static final int TALON = 3;
     }
 
     public static class Door {

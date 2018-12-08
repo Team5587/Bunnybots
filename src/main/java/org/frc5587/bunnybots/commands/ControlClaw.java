@@ -1,5 +1,9 @@
-package org.frc5587.bunnybots;
+package org.frc5587.bunnybots.commands;
 
+import org.frc5587.bunnybots.OI;
+import org.frc5587.bunnybots.Robot;
+
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class ControlClaw extends Command {
@@ -15,6 +19,10 @@ public class ControlClaw extends Command {
             Robot.claw.clawClose();
         } else if (OI.controller.getXButtonPressed()) {
             Robot.claw.clawOpen();
+        }
+
+        if(Math.abs(OI.controller.getY(Hand.kLeft)) > .05) {
+            Robot.claw.clawArmMove(OI.controller.getY(Hand.kLeft));
         }
     }
 
