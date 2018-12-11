@@ -7,18 +7,23 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class ControlIntake extends Command {
+    private boolean on;
 
     public ControlIntake() {
-
+        on = true;
     }
 
     @Override
     protected void execute() {
         // using getBumper as opposed to getBumperPressed for more specific control
-        if (OI.controller.getBumper(Hand.kRight)) {
-            Robot.intake.intakeOn();
-        } else {
-            Robot.intake.intakeOff();
+        if (OI.controller.getBumperPressed(Hand.kRight)) {
+            if (!on) {
+                Robot.intake.intakeOn();
+                on = true;
+            } else {
+                Robot.intake.intakeOff();
+                on = false;
+            }
         }
     }
 
