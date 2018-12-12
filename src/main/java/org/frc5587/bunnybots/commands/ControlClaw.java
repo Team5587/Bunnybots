@@ -5,12 +5,15 @@ import org.frc5587.bunnybots.Robot;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class ControlClaw extends Command {
 
     public ControlClaw() {
 
     }
+
+
 
     @Override
     protected void execute() {
@@ -24,6 +27,10 @@ public class ControlClaw extends Command {
         if(Math.abs(OI.controller.getY(Hand.kLeft)) > .05) {
             Robot.claw.clawArmMove(OI.controller.getY(Hand.kLeft));
         }
+
+        System.out.println(Robot.claw.getArmPosition());
+        SmartDashboard.putNumber("Claw Arm Encoder Value: ", Robot.claw.getArmPosition());
+
     }
 
     @Override

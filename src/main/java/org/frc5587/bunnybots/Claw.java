@@ -32,6 +32,14 @@ public class Claw extends Subsystem {
         clawArm.set(ControlMode.PercentOutput, 1);
     }
 
+    public double getArmPosition() {
+        return clawArm.getSelectedSensorPosition(0);
+    }
+
+    public void resetEncoder() {
+        clawArm.setSelectedSensorPosition(0, 0, 10);
+    }
+
     @Override
     protected void initDefaultCommand() {
 
