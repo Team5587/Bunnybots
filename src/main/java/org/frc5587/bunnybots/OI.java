@@ -7,5 +7,5 @@ public class OI {
 
     public static final XboxController controller = new XboxController(0);
     public static final Joystick joystick = new Joystick(1);
-    
+  
 }
