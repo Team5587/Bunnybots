@@ -6,13 +6,14 @@ import numpy as np
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
-NetworkTables.initialize()
+ip = "10.55.87.2"
+NetworkTables.initialize(server=ip)
 sd = NetworkTables.getTable("SmartDashboard")
 
 cam = cv2.VideoCapture(0)
 
-#Lower color limits
-red = ([169, 100, 100], [189, 255, 255])
+# Lower color limits
+red = ([160, 100, 100], [179, 255, 255])
 blue = ([95, 100, 100], [115, 255, 255])
 
 
@@ -22,21 +23,22 @@ def color_found(cam, color_bounds):
     color_lower = np.array(color_bounds[0], dtype="uint8")
     color_upper = np.array(color_bounds[1], dtype="uint8")
 
-    #switch color space to HSV
+    # switch color space to HSV
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-    #Make mask of image, only showing color in between upper and lower color values
+    # Make mask of image, only showing color in between upper
+    # and lower color values
     mask = cv2.inRange(hsv, color_lower, color_upper)
 
-    #find contours of colors in respective masks
+    # find contours of colors in respective masks
     _, contours, _ = cv2.findContours(mask, cv2.RETR_TREE,
                                       cv2.CHAIN_APPROX_SIMPLE)
 
-    #get the sizes of all contours
-    contour_sizes = [(cv2.contourArea(contour), contour) for contour in contours
-                    ]
+    # get the sizes of all contours
+    contour_sizes = [(cv2.contourArea(contour), contour) for contour
+                     in contours]
 
-    #if there are contorurs, find the biggest one and draw it
+    # if there are contorurs, find the biggest one and draw it
     return len(contour_sizes) > 0
 
 
