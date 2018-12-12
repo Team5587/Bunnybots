@@ -7,8 +7,7 @@
 
 package org.frc5587.bunnybots;
 
-import javax.sound.sampled.Control;
-
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -26,7 +25,10 @@ public class Robot extends TimedRobot {
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
-  public static DriveTrain driveTrain = new DriveTrain();
+  public static final DriveTrain driveTrain = new DriveTrain();
+  private static final Compressor compressor = new Compressor();
+  public static final Claw claw = new Claw();
+  public static final Door door = new Door();
 
   /**
    * This function is run when the robot is first started up and should be used
@@ -37,6 +39,7 @@ public class Robot extends TimedRobot {
     m_chooser.addDefault("Default Auto", kDefaultAuto);
     m_chooser.addObject("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+    compressor.start();    
   }
 
   /**
@@ -90,8 +93,10 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopInit() {
     new ControlDriveTrain().start();
+    new ControlClaw().start();
+    new ControlDoor().start();
   }
-
+  
   /**
    * This function is called periodically during operator control.
    */
@@ -106,4 +111,6 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() {
   }
+
+  
 }
