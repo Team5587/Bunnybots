@@ -13,9 +13,20 @@ public class Claw extends Subsystem {
     private DoubleSolenoid pistonClaw = new DoubleSolenoid(RobotMap.Claw.PISTON_CLAW[0],
             RobotMap.Claw.PISTON_CLAW[1]);
     private TalonSRX clawArm = new TalonSRX(RobotMap.Claw.TALON);
+    private static final double ticksPerNinety = 3219.0;
 
     public Claw() {
 
+    }
+
+    public static double degreeConversion(double angle) {
+        double encoderTicks = angle * (ticksPerNinety / 90);
+        return encoderTicks;
+    }
+
+    public static double tickConversion(double ticks) {
+        double degrees = ticks * (90 / ticksPerNinety);
+        return degrees;
     }
 
     public void clawClose() {
@@ -40,6 +51,10 @@ public class Claw extends Subsystem {
 
     public void resetEncoder() {
         clawArm.setSelectedSensorPosition(0, 0, 10);
+    }
+
+    public void moveToSetPoint(double encoderTicks) {
+        clawArm.set(ControlMode.MotionMagic, encoderTicks);
     }
 
     @Override

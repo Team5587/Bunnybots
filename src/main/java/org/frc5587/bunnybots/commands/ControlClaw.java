@@ -2,6 +2,7 @@ package org.frc5587.bunnybots.commands;
 
 import org.frc5587.bunnybots.OI;
 import org.frc5587.bunnybots.Robot;
+import org.frc5587.bunnybots.subsystems.Claw;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
@@ -24,10 +25,16 @@ public class ControlClaw extends Command {
             Robot.claw.clawOpen();
         }
 
-        if(Math.abs(OI.controller.getY(Hand.kLeft)) > .05) {
+        if (Math.abs(OI.controller.getY(Hand.kLeft)) > .05) {
             Robot.claw.clawArmMove(.25 * OI.controller.getY(Hand.kLeft));
         } else {
             Robot.claw.clawArmMove(-0.07);
+        }
+        
+        if (OI.controller.getBumperPressed(Hand.kLeft)) {
+            Robot.claw.moveToSetPoint(Claw.degreeConversion(80));
+        } else if (OI.controller.getTrigger(Hand.kLeft)) {
+            Robot.claw.moveToSetPoint(Claw.degreeConversion(0));
         }
 
         System.out.println(Robot.claw.getArmPosition());
