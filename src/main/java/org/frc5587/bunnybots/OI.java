@@ -9,3 +9,11 @@ public class OI {
     public static final Joystick joystick = new Joystick(1);
     
 }
+
+/* 
+Right bumper = turn on intake
+A button = open door
+B button = close claw
+X button = open claw
+
+*/
