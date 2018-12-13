@@ -25,7 +25,9 @@ public class ControlClaw extends Command {
         }
 
         if(Math.abs(OI.controller.getY(Hand.kLeft)) > .05) {
-            Robot.claw.clawArmMove(OI.controller.getY(Hand.kLeft));
+            Robot.claw.clawArmMove(.25 * OI.controller.getY(Hand.kLeft));
+        } else {
+            Robot.claw.clawArmMove(-0.07);
         }
 
         System.out.println(Robot.claw.getArmPosition());

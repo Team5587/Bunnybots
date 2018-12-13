@@ -4,7 +4,7 @@ public class RobotMap {
     public static final int COMPRESSOR = 0;
 
     public static class Claw {
-        public static final int[] PISTON_CLAW = { 1, 2 };
+        public static final int[] PISTON_CLAW = { 6, 7 };
         public static final int TALON = 5;
     }
 

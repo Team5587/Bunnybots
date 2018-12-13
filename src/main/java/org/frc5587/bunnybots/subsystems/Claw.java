@@ -31,7 +31,7 @@ public class Claw extends Subsystem {
     }
 
     public void clawSetPoints() {
-        clawArm.set(ControlMode.PercentOutput, 1);
+        clawArm.set(ControlMode.PercentOutput, .1);
     }
 
     public double getArmPosition() {
