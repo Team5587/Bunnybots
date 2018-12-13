@@ -1,4 +1,6 @@
-package org.frc5587.bunnybots;
+package org.frc5587.bunnybots.subsystems;
+
+import org.frc5587.bunnybots.RobotMap;
 
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;

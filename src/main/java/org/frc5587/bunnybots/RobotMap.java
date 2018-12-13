@@ -22,6 +22,6 @@ public class RobotMap {
 
     public static class Intake {
         // change CAN ID later when we know where it actually is
-        public static final int TALON = 2;
+        public static final int TALON = 9;
     }
 }

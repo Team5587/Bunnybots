@@ -7,10 +7,8 @@
 
 package org.frc5587.bunnybots;
 
-import org.frc5587.bunnybots.commands.ControlDoor;
-import org.frc5587.bunnybots.commands.ControlClaw;
-import org.frc5587.bunnybots.commands.ControlIntake;
-import org.frc5587.bunnybots.commands.ResetArmEncoder;
+import org.frc5587.bunnybots.commands.*;
+import org.frc5587.bunnybots.subsystems.*;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;

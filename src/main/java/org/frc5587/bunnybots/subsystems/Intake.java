@@ -1,7 +1,9 @@
-package org.frc5587.bunnybots;
+package org.frc5587.bunnybots.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
+import org.frc5587.bunnybots.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
