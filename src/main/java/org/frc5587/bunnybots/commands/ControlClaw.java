@@ -24,17 +24,19 @@ public class ControlClaw extends Command {
         } else if (OI.controller.getXButtonPressed()) {
             Robot.claw.clawOpen();
         }
-
-        if (Math.abs(OI.controller.getY(Hand.kLeft)) > .05) {
-            Robot.claw.clawArmMove(.25 * OI.controller.getY(Hand.kLeft));
-        } else {
-            Robot.claw.clawArmMove(-0.07);
-        }
         
-        if (OI.controller.getBumperPressed(Hand.kLeft)) {
-            Robot.claw.moveToSetPoint(Claw.degreeConversion(80));
-        } else if (OI.controller.getTrigger(Hand.kLeft)) {
-            Robot.claw.moveToSetPoint(Claw.degreeConversion(0));
+        if (!OI.controller.getXButton()) {
+            if (OI.controller.getBumperPressed(Hand.kLeft)) {
+                Robot.claw.moveToSetPoint(Claw.degreeConversion(80));
+            } else if (OI.controller.getTrigger(Hand.kLeft)) {
+                Robot.claw.moveToSetPoint(Claw.degreeConversion(0));
+            }
+        } else {
+            if (Math.abs(OI.controller.getY(Hand.kLeft)) > .05) {
+                Robot.claw.clawArmMove(.25 * OI.controller.getY(Hand.kLeft));
+            } else {
+                Robot.claw.clawArmMove(-0.07);
+            }
         }
 
         System.out.println(Robot.claw.getArmPosition());
