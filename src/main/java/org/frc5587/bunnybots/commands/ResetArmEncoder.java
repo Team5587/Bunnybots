@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.InstantCommand;
 
 public class ResetArmEncoder extends InstantCommand {
     public ResetArmEncoder() {
-
+        this.setRunWhenDisabled(true);
     }
 
     @Override

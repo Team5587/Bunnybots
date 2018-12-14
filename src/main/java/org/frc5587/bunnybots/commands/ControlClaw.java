@@ -20,6 +20,7 @@ public class ControlClaw extends Command {
 
     @Override
     protected void execute() {
+        Robot.claw.updateFeed();
 
         // open/close claw (toggle)
         if (OI.controller.getBButtonPressed()) {

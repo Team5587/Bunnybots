@@ -26,8 +26,15 @@ public class Constants {
         public static final double holdPercent = 0.2;
 
         public static final double kDeadband = 200;
+
+        public static final double stallTorqueInchLbs = 12.4;
+        public static final double distToCOMInch = 12.0;
+        public static final double gearRatio = 15.0;
+        public static final double armWeightLbs = 2.4;
+        public static final int numMotors = 1;
+
         // PID Constants
-        public static final double kF = .58, kP = 0.03, kI = 0.0, kD = 0.05;
+        public static double kP = 0.55, kI = 0.0, kD = 0.05;
 
         // Safety limits
         public static final double minPercentOut = 0, maxPercentBw = .6, maxPercentFw = 1;

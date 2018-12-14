@@ -2,6 +2,7 @@ package org.frc5587.bunnybots.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.StatusFrameEnhanced;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
@@ -10,6 +11,7 @@ import org.frc5587.bunnybots.RobotMap;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Claw extends Subsystem {
 
@@ -45,7 +47,7 @@ public class Claw extends Subsystem {
 
         // set closed loop gains in set slot
         clawArm.selectProfileSlot(Constants.ClawArm.kSlotIdx, Constants.ClawArm.kPIDLoopIdx);
-        clawArm.config_kF(0, Constants.ClawArm.kF, Constants.ClawArm.kTimeoutMs);
+        clawArm.config_kF(0, getFeedForward(), Constants.ClawArm.kTimeoutMs);
         clawArm.config_kP(0, Constants.ClawArm.kP, Constants.ClawArm.kTimeoutMs);
         clawArm.config_kI(0, Constants.ClawArm.kI, Constants.ClawArm.kTimeoutMs);
         clawArm.config_kD(0, Constants.ClawArm.kD, Constants.ClawArm.kTimeoutMs);
@@ -56,6 +58,7 @@ public class Claw extends Subsystem {
         // clawArm.setSelectedSensorPosition(0, Constants.ClawArm.kPIDLoopIdx,
         // Constants.ClawArm.kTimeoutMs);
         clawArm.configVoltageCompSaturation(Constants.ClawArm.vCompSaturation, Constants.ClawArm.kTimeoutMs);
+        clawArm.setNeutralMode(NeutralMode.Brake);
     }
 
     public static double degreeConversion(double angle) {
@@ -88,12 +91,27 @@ public class Claw extends Subsystem {
         return clawArm.getSelectedSensorPosition(0);
     }
 
+    public double getArmAngleDegrees() {
+        return tickConversion(getArmPosition()); 
+    }
+
     public void resetEncoder() {
         clawArm.setSelectedSensorPosition(0, 0, 10);
     }
 
     public void moveToSetPoint(double encoderTicks) {
         clawArm.set(ControlMode.MotionMagic, encoderTicks);
+    }
+
+    public double getFeedForward() {
+        return Constants.ClawArm.armWeightLbs
+                * (Constants.ClawArm.distToCOMInch
+                        / (Constants.ClawArm.stallTorqueInchLbs * Constants.ClawArm.numMotors * Constants.ClawArm.gearRatio))
+                * Math.cos(Math.toRadians(getArmAngleDegrees()));
+    }
+
+    public void updateFeed() {
+        clawArm.config_kF(0, getFeedForward(), Constants.ClawArm.kTimeoutMs);
     }
 
     @Override
