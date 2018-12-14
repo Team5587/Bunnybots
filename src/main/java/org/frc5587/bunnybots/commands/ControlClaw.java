@@ -38,15 +38,17 @@ public class ControlClaw extends Command {
             if (OI.controller.getBumperPressed(Hand.kLeft)) {
                 point = 0;
                 if (count == 1) {
-                    point = Claw.degreeConversion(0);
+                    point = Claw.degreeConversion(-15);
                     count++;
                 } else if (count == 2) {
-                    point = Claw.degreeConversion(70);
+                    point = Claw.degreeConversion(0);
                     count++;
                 } else if (count == 3) {
-                    point = Claw.degreeConversion(90);
-                    count = 1;
-                }
+                    point = Claw.degreeConversion(45);
+                    count++;
+                } else if (count == 4) {
+                    point = Claw.degreeConversion(90)
+;                }
                 Robot.claw.moveToSetPoint(point);
             }
         } else {
