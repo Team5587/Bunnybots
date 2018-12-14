@@ -23,6 +23,10 @@ public class Intake extends Subsystem {
         talon.set(ControlMode.PercentOutput, 0);
     }
 
+    public void intakeBack() {
+        talon.set(ControlMode.PercentOutput, -1);
+    }
+
     @Override
     protected void initDefaultCommand() {
         

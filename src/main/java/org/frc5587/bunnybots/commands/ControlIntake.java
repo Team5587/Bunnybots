@@ -17,14 +17,19 @@ public class ControlIntake extends Command {
     protected void execute() {
         // using getBumper as opposed to getBumperPressed for more specific control
         if (OI.controller.getBumperPressed(Hand.kRight)) {
-            if (!on) {
-                Robot.intake.intakeOn();
-                on = true;
+            if (OI.controller.getStickButton(Hand.kRight)) {
+                Robot.intake.intakeBack();
             } else {
-                Robot.intake.intakeOff();
-                on = false;
-            }
+                if (!on) {
+                    Robot.intake.intakeOn();
+                    on = true;
+                } else {
+                    Robot.intake.intakeOff();
+                    on = false;
+                }
+            } 
         }
+    
     }
 
     @Override
