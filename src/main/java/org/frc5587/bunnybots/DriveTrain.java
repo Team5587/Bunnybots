@@ -30,7 +30,7 @@ public class DriveTrain extends Subsystem {
 
     public void driveTrainSpin(double xInput) {
         leftMaster.set(ControlMode.PercentOutput, xInput);
-        rightMaster.set(ControlMode.PercentOutput, xInput);
+        rightMaster.set(ControlMode.PercentOutput, xInpsut);
     }
 
     public void vbusLR(double leftIn, double rightIn) {

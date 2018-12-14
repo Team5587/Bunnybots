@@ -10,6 +10,7 @@ package org.frc5587.bunnybots;
 import org.frc5587.bunnybots.commands.ControlClaw;
 import org.frc5587.bunnybots.commands.ControlDoor;
 import org.frc5587.bunnybots.commands.ControlDriveTrain;
+import org.frc5587.bunnybots.commands.DriveDump;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -76,6 +77,7 @@ public class Robot extends TimedRobot {
     m_autoSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
     System.out.println("Auto selected: " + m_autoSelected);
+    new DriveDump().start();
   }
 
   /**

@@ -5,27 +5,27 @@ import org.frc5587.bunnybots.Robot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class AutoForward extends Command {
+public class AutoDoor extends Command {
     private Timer timer = new Timer();
 
-    public AutoForward() {
-        requires(Robot.driveTrain);
+    public AutoDoor() {
+        requires(Robot.door);
     }
 
     @Override
     protected void initialize() {
         timer.start();
-        Robot.driveTrain.driveTrainMove(.5);
+        Robot.door.doorOpen();
     }
 
     @Override
     protected boolean isFinished() {
-        return timer.hasPeriodPassed(2);
+        return timer.hasPeriodPassed(3);
     }
 
     @Override
     protected void end() {
-        Robot.driveTrain.driveTrainMove(0);
+        Robot.door.doorClose();
         timer.stop();
     }
 }
