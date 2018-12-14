@@ -12,15 +12,17 @@ public class ControlDoor extends Command {
     }
 
     @Override
-    public synchronized void start() {
+    protected void initialize() {
         Robot.door.doorClose();
     }
 
     @Override
     protected void execute() {
         if (OI.controller.getAButton()) {
+            System.out.println("Opening...");
             Robot.door.doorOpen();
         } else {
+            System.out.println("Closing...");
             Robot.door.doorClose();
         }
     }
