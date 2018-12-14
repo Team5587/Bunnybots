@@ -14,35 +14,55 @@ public class ControlClaw extends Command {
 
     }
 
-
+    int count = 1;
+    double point;
+    boolean closed = true;
 
     @Override
     protected void execute() {
 
+        // open/close claw (toggle)
         if (OI.controller.getBButtonPressed()) {
-            Robot.claw.clawClose();
-        } else if (OI.controller.getXButtonPressed()) {
-            Robot.claw.clawOpen();
+            if (closed) {
+                Robot.claw.clawOpen();
+                closed = false;
+            } else {
+                Robot.claw.clawClose();
+                closed = true;
+            }
         }
         
+        // move claw up/down
         if (!OI.controller.getXButton()) {
+            // control via setpoints -- cycles through
             if (OI.controller.getBumperPressed(Hand.kLeft)) {
-                Robot.claw.moveToSetPoint(Claw.degreeConversion(80));
-            } else if (OI.controller.getTrigger(Hand.kLeft)) {
-                Robot.claw.moveToSetPoint(Claw.degreeConversion(0));
+                point = 0;
+                if (count == 1) {
+                    point = Claw.degreeConversion(0);
+                    count++;
+                } else if (count == 2) {
+                    point = Claw.degreeConversion(70);
+                    count++;
+                } else if (count == 3) {
+                    point = Claw.degreeConversion(90);
+                    count = 1;
+                }
+                Robot.claw.moveToSetPoint(point);
             }
         } else {
+            // manual control
             if (Math.abs(OI.controller.getY(Hand.kLeft)) > .05) {
                 Robot.claw.clawArmMove(.25 * OI.controller.getY(Hand.kLeft));
             } else {
+                // hold voltage
                 Robot.claw.clawArmMove(-0.07);
             }
         }
 
         System.out.println(Robot.claw.getArmPosition());
         SmartDashboard.putNumber("Claw Arm Encoder Value: ", Robot.claw.getArmPosition());
-
     }
+    
 
     @Override
     protected boolean isFinished() {
