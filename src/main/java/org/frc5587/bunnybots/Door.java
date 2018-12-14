@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Door extends Subsystem {
-   
+
     private Servo servo = new Servo(RobotMap.Door.SERVO);
 
     public Door() {
@@ -20,9 +20,8 @@ public class Door extends Subsystem {
         servo.set(1.0);
     }
 
-
     @Override
     protected void initDefaultCommand() {
-        
+
     }
 }

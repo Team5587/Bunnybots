@@ -1,4 +1,7 @@
-package org.frc5587.bunnybots;
+package org.frc5587.bunnybots.commands;
+
+import org.frc5587.bunnybots.OI;
+import org.frc5587.bunnybots.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 

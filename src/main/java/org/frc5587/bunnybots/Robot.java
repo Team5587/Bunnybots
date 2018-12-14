@@ -7,6 +7,10 @@
 
 package org.frc5587.bunnybots;
 
+import org.frc5587.bunnybots.commands.ControlClaw;
+import org.frc5587.bunnybots.commands.ControlDoor;
+import org.frc5587.bunnybots.commands.ControlDriveTrain;
+
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -39,7 +43,7 @@ public class Robot extends TimedRobot {
     m_chooser.addDefault("Default Auto", kDefaultAuto);
     m_chooser.addObject("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
-    compressor.start();    
+    compressor.start();
   }
 
   /**
@@ -96,7 +100,7 @@ public class Robot extends TimedRobot {
     new ControlClaw().start();
     new ControlDoor().start();
   }
-  
+
   /**
    * This function is called periodically during operator control.
    */
@@ -112,5 +116,4 @@ public class Robot extends TimedRobot {
   public void testPeriodic() {
   }
 
-  
 }
