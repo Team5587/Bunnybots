@@ -10,9 +10,10 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 public class Sort extends Command {
-    Boolean red, blue, indexerTriggered;
-    Sorter sorter;
-    Timer hatchTimer, indexerTimer;
+    private Boolean red, blue, indexerTriggered;
+    private Sorter sorter;
+    private Timer hatchTimer, indexerTimer;
+    private double timeInterval;
 
     public Sort() {
         requires(Robot.sorter);
@@ -27,8 +28,9 @@ public class Sort extends Command {
     }
 
     protected void execute() {
+        timeInterval = indexerTriggered ? 0.2 : 0.5;
 
-        if (indexerTimer.hasPeriodPassed(0.5)) { // toggle indexer every time interval
+        if (indexerTimer.hasPeriodPassed(timeInterval)) { // toggle indexer every time interval
             if (indexerTriggered) {
                 sorter.setIndexer(DoubleSolenoid.Value.kReverse);
             } else {
@@ -37,6 +39,21 @@ public class Sort extends Command {
             indexerTriggered = !indexerTriggered;
             indexerTimer.reset();
         }
+
+        // Backup code just in case the switching above doesn't work
+        // if (indexerTriggered) {
+        //     if (indexerTimer.hasPeriodPassed(0.2)) {
+        //         sorter.setIndexer(DoubleSolenoid.Value.kReverse);
+        //         indexerTriggered = !indexerTriggered;
+        //         indexerTimer.reset();
+        //     }
+        // } else {
+        //     if (indexerTimer.hasPeriodPassed(0.5)) {
+        //         sorter.setIndexer(DoubleSolenoid.Value.kForward);
+        //         indexerTriggered = !indexerTriggered;
+        //         indexerTimer.reset();
+        //     }
+        // }
 
         // Color can be "None", "Red", or "Blue"
         red = (sorter.getResult() == "Red");
