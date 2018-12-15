@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Door extends Subsystem {
    
     private Servo servo = new Servo(RobotMap.Door.SERVO);
-    private static final double openAngle = 135;
+    private static final double openAngle = 160;
     private static final double closedAngle = 0;
 
     public Door() {

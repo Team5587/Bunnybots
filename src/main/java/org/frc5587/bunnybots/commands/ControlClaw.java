@@ -23,14 +23,10 @@ public class ControlClaw extends Command {
         Robot.claw.updateFeed();
 
         // open/close claw (toggle)
-        if (OI.controller.getBButtonPressed()) {
-            if (closed) {
-                Robot.claw.clawOpen();
-                closed = false;
-            } else {
-                Robot.claw.clawClose();
-                closed = true;
-            }
+        if (OI.controller.getBButton()) {
+            Robot.claw.clawClose();
+        } else {
+            Robot.claw.clawOpen();
         }
         
         // move claw up/down
@@ -61,8 +57,7 @@ public class ControlClaw extends Command {
                 Robot.claw.clawArmMove(-0.07);
             }
         }
-
-        System.out.println(Robot.claw.getArmPosition());
+        
         SmartDashboard.putNumber("Claw Arm Encoder Value: ", Robot.claw.getArmPosition());
     }
     

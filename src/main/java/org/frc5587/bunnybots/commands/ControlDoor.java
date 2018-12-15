@@ -19,10 +19,8 @@ public class ControlDoor extends Command {
     @Override
     protected void execute() {
         if (OI.controller.getAButton()) {
-            System.out.println("Opening...");
             Robot.door.doorOpen();
         } else {
-            System.out.println("Closing...");
             Robot.door.doorClose();
         }
     }

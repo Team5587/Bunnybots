@@ -13,16 +13,12 @@ import org.frc5587.bunnybots.subsystems.*;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
-<<<<<<< HEAD
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-=======
-
 
 import org.frc5587.bunnybots.commands.*;
 import org.frc5587.bunnybots.subsystems.*;
 
->>>>>>> Prototype-Testing
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -51,9 +47,8 @@ public class Robot extends TimedRobot {
     m_chooser.addDefault("Default Auto", kDefaultAuto);
     m_chooser.addObject("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
-    compressor.start();
+    compressor.setClosedLoopControl(Constants.compressorEnabled);
     SmartDashboard.putData("Reset Claw Arm Encoder", new ResetArmEncoder());    
-    new Sort().start();
   }
 
   /**
@@ -100,11 +95,11 @@ public class Robot extends TimedRobot {
       // Put default auto code here
       break;
     }
-    Scheduler.getInstance().run();
   }
 
   @Override
   public void teleopInit() {
+    new Sort().start();
     new ControlDriveTrain().start();
     new ControlClaw().start();
     new ControlDoor().start();

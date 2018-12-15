@@ -28,7 +28,8 @@ public class Sort extends Command {
     }
 
     protected void execute() {
-        timeInterval = indexerTriggered ? 0.2 : 0.5;
+        // System.out.println(indexerTimer.get());
+        timeInterval = indexerTriggered ? 0.7 : 0.2;
 
         if (indexerTimer.hasPeriodPassed(timeInterval)) { // toggle indexer every time interval
             if (indexerTriggered) {
@@ -56,8 +57,10 @@ public class Sort extends Command {
         // }
 
         // Color can be "None", "Red", or "Blue"
-        red = (sorter.getResult() == "Red");
-        blue = (sorter.getResult() == "Blue");
+        red = (sorter.getResult().equals("Red"));
+        blue = (sorter.getResult().equals("Blue"));
+
+        System.out.println("Red: " + red + " | Blue: " + blue);
 
         if (DriverStation.getInstance().getAlliance() == Alliance.Blue) {
             if (blue) { // if blue open hatch
