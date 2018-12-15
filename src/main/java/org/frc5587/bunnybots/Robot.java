@@ -23,7 +23,7 @@ import org.frc5587.bunnybots.subsystems.*;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static final Intake intake = new Intake();
+  public static final Sorter sorter = new Sorter();
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
@@ -70,8 +70,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopInit(){
     System.out.println("Teleop Started");
-    //new ControlIntake().start();
-    new ControlHatch().start();
+    new Sort().start();
   }
   /**
    * This function is called periodically during operator control.
