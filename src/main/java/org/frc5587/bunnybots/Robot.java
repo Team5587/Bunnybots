@@ -16,10 +16,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.frc5587.bunnybots.commands.*;
-import org.frc5587.bunnybots.subsystems.*;
-
-
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -79,6 +75,10 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
+    m_autoSelected = m_chooser.getSelected();
+    // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
+    System.out.println("Auto selected: " + m_autoSelected);
+    new DriveDump().start();
   }
 
   /**
@@ -95,6 +95,7 @@ public class Robot extends TimedRobot {
       // Put default auto code here
       break;
     }
+    Scheduler.getInstance().run();
   }
 
   @Override
@@ -105,6 +106,7 @@ public class Robot extends TimedRobot {
     new ControlDoor().start();
     new ControlIntake().start();
   }
+
   /**
    * This function is called periodically during operator control.
    */
@@ -120,5 +122,4 @@ public class Robot extends TimedRobot {
   public void testPeriodic() {
   }
 
-  
 }
