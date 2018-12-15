@@ -11,29 +11,25 @@ import edu.wpi.first.wpilibj.DriverStation;
 import org.frc5587.bunnybots.RobotMap;
 
 public class Sorter extends Subsystem {
-    DoubleSolenoid hatch,indexer;
-    Timer hatchTimer, indexerTimer;
+    private DoubleSolenoid hatch, indexer;
 
     public Sorter() {
-        hatch = new DoubleSolenoid(RobotMap.Sorter.hatchSolenoid[0],
-        RobotMap.Sorter.hatchSolenoid[1]);
-
-        indexer = new DoubleSolenoid(RobotMap.Sorter.indexerSolenoid[0],
-        RobotMap.Sorter.indexerSolenoid[1]);
+        hatch = new DoubleSolenoid(RobotMap.Sorter.hatchSolenoid[0], RobotMap.Sorter.hatchSolenoid[1]);
+        indexer = new DoubleSolenoid(RobotMap.Sorter.indexerSolenoid[0], RobotMap.Sorter.indexerSolenoid[1]);
     }
 
     public void initDefaultCommand() {
     }
 
-    public String getResult(){
+    public String getResult() {
         return SmartDashboard.getString("Color", "None");
     }
 
-    public void setHatch(DoubleSolenoid.Value valueToSet){
+    public void setHatch(DoubleSolenoid.Value valueToSet) {
         hatch.set(valueToSet);
     }
 
-    public void setIndexer(DoubleSolenoid.Value valueToSet){
+    public void setIndexer(DoubleSolenoid.Value valueToSet) {
         indexer.set(valueToSet);
     }
 }

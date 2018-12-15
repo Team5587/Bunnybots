@@ -34,22 +34,30 @@ def color_found(cam, color_bounds):
     _, contours, _ = cv2.findContours(mask, cv2.RETR_TREE,
                                       cv2.CHAIN_APPROX_SIMPLE)
 
-    # get the sizes of all contours
-    contour_sizes = [(cv2.contourArea(contour), contour) for contour
-                     in contours]
-
-    # if there are contorurs, find the biggest one and draw it
-    return len(contour_sizes) > 0
+    if (len(contours) > 0):
+        biggest_contour = max(contours, key=cv2.contourArea)
+        x, y, w, h = cv2.boundingRect(biggest_contour)
+        if w > 10.0:
+            return y + int(
+                h / 2)  # distance from the top of the frame to center of ball
+    return 0
 
 
 while True:
-    is_red = color_found(cam, red)
-    is_blue = color_found(cam, blue)
+    red_distance = color_found(cam, red)
+    blue_distance = color_found(cam, blue)
+    print(red_distance, blue_distance)
 
-    sd.putBoolean("Camera Red", is_red)
-    sd.putBoolean("Camera Blue", is_red)
+    if red_distance > blue_distance:
+        ball_color = "Red"
+    elif blue_distance > red_distance:
+        ball_color = "Blue"
+    else:
+        ball_color = "None"
 
-    print("Cam - Red: " + str(is_red) + " | Blue: " + str(is_blue))
+    sd.putString("Color", ball_color)
+
+    print("Closest Ball: " + ball_color)
 
 # Runs if while loop is exited
 cam.release()
