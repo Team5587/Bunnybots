@@ -24,4 +24,9 @@ public class RobotMap {
         // change CAN ID later when we know where it actually is
         public static final int TALON = 9;
     }
+
+    public static class Sorter {
+        public static final int[] hatchSolenoid = { 4, 5 };
+        public static final int[] indexerSolenoid = { 6, 7 };
+    }
 }

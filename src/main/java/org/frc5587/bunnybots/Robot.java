@@ -13,8 +13,16 @@ import org.frc5587.bunnybots.subsystems.*;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+<<<<<<< HEAD
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+=======
+
+
+import org.frc5587.bunnybots.commands.*;
+import org.frc5587.bunnybots.subsystems.*;
+
+>>>>>>> Prototype-Testing
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -33,7 +41,7 @@ public class Robot extends TimedRobot {
   public static final Claw claw = new Claw();
   public static final Door door = new Door();
   public static final Intake intake = new Intake();
-
+  public static final Sorter sorter = new Sorter();
   /**
    * This function is run when the robot is first started up and should be used
    * for any initialization code.
@@ -45,6 +53,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Auto choices", m_chooser);
     compressor.start();
     SmartDashboard.putData("Reset Claw Arm Encoder", new ResetArmEncoder());    
+    new Sort().start();
   }
 
   /**
@@ -58,6 +67,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+
   }
 
   /**
@@ -74,9 +84,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    m_autoSelected = m_chooser.getSelected();
-    // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
-    System.out.println("Auto selected: " + m_autoSelected);
   }
 
   /**
@@ -93,6 +100,7 @@ public class Robot extends TimedRobot {
       // Put default auto code here
       break;
     }
+    Scheduler.getInstance().run();
   }
 
   @Override
@@ -102,7 +110,6 @@ public class Robot extends TimedRobot {
     new ControlDoor().start();
     new ControlIntake().start();
   }
-  
   /**
    * This function is called periodically during operator control.
    */
