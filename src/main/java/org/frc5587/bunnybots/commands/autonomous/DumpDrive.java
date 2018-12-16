@@ -1,4 +1,4 @@
-package org.frc5587.bunnybots.commands;
+package org.frc5587.bunnybots.commands.autonomous;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 

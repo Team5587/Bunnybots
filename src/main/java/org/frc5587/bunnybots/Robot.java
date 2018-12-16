@@ -8,6 +8,7 @@
 package org.frc5587.bunnybots;
 
 import org.frc5587.bunnybots.commands.*;
+import org.frc5587.bunnybots.commands.autonomous.DumpDrive;
 import org.frc5587.bunnybots.subsystems.*;
 
 import edu.wpi.first.wpilibj.Compressor;

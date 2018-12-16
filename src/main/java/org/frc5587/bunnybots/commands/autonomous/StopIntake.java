@@ -1,17 +1,17 @@
-package org.frc5587.bunnybots.commands;
+package org.frc5587.bunnybots.commands.autonomous;
 
 import org.frc5587.bunnybots.Robot;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
 
-public class RunIntake extends InstantCommand {
-    public RunIntake() {
+public class StopIntake extends InstantCommand {
+    public StopIntake() {
         
     }
 
     @Override
     protected void execute() {
-        Robot.intake.intakeOn();
+        Robot.intake.intakeOff();
     }
 
     @Override

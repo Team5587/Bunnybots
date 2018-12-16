@@ -24,6 +24,7 @@ public class Sort extends Command {
     }
 
     protected void execute() {
+        // Code moved to ControlIntake to run indexer only when intaking balls
         // System.out.println(indexerTimer.get());
         // timeInterval = indexerTriggered ? 0.7 : 0.2;
 
