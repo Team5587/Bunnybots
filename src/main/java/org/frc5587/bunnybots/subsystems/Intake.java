@@ -16,7 +16,7 @@ public class Intake extends Subsystem {
     }
 
     public void intakeOn() {
-        talon.set(ControlMode.PercentOutput, 1);
+        talon.set(ControlMode.PercentOutput, 0.75);
     }
 
     public void intakeOff() {

@@ -8,7 +8,7 @@ package org.frc5587.bunnybots;
  */
 public class Constants {
 
-    public static boolean compressorEnabled = false;
+    public static boolean compressorEnabled = true;
 
     public static final class ClawArm {
         // Which PID slot to pull gains from. Starting 2018, you can choose from 0,1,2

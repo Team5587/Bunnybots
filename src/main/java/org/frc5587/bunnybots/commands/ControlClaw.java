@@ -9,14 +9,12 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class ControlClaw extends Command {
+    private int count = 1;
+    private double point;
 
     public ControlClaw() {
-
+        point = 0;
     }
-
-    int count = 1;
-    double point;
-    boolean closed = true;
 
     @Override
     protected void execute() {
@@ -33,19 +31,21 @@ public class ControlClaw extends Command {
         if (!OI.controller.getXButton()) {
             // control via setpoints -- cycles through
             if (OI.controller.getBumperPressed(Hand.kLeft)) {
-                point = 0;
                 if (count == 1) {
                     point = Claw.degreeConversion(-15);
-                    count++;
                 } else if (count == 2) {
                     point = Claw.degreeConversion(0);
-                    count++;
                 } else if (count == 3) {
                     point = Claw.degreeConversion(45);
-                    count++;
                 } else if (count == 4) {
                     point = Claw.degreeConversion(90)
 ;                }
+
+                if (count >= 4) {
+                    count = 1;
+                } else {
+                    count++;
+                }
                 Robot.claw.moveToSetPoint(point);
             }
         } else {

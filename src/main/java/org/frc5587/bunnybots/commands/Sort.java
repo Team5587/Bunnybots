@@ -10,36 +10,32 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 public class Sort extends Command {
-    private Boolean red, blue, indexerTriggered;
+    private Boolean red, blue;
     private Sorter sorter;
-    private Timer hatchTimer, indexerTimer;
-    private double timeInterval;
+    private Timer hatchTimer;
 
     public Sort() {
         requires(Robot.sorter);
         sorter = Robot.sorter;
-        indexerTimer = new Timer();
         hatchTimer = new Timer();
     }
 
     protected void initialize() {
-        indexerTimer.start();
-        indexerTriggered = true;
     }
 
     protected void execute() {
         // System.out.println(indexerTimer.get());
-        timeInterval = indexerTriggered ? 0.7 : 0.2;
+        // timeInterval = indexerTriggered ? 0.7 : 0.2;
 
-        if (indexerTimer.hasPeriodPassed(timeInterval)) { // toggle indexer every time interval
-            if (indexerTriggered) {
-                sorter.setIndexer(DoubleSolenoid.Value.kReverse);
-            } else {
-                sorter.setIndexer(DoubleSolenoid.Value.kForward);
-            }
-            indexerTriggered = !indexerTriggered;
-            indexerTimer.reset();
-        }
+        // if (indexerTimer.hasPeriodPassed(timeInterval)) { // toggle indexer every time interval
+        //     if (indexerTriggered) {
+        //         sorter.setIndexer(DoubleSolenoid.Value.kReverse);
+        //     } else {
+        //         sorter.setIndexer(DoubleSolenoid.Value.kForward);
+        //     }
+        //     indexerTriggered = !indexerTriggered;
+        //     indexerTimer.reset();
+        // }
 
         // Backup code just in case the switching above doesn't work
         // if (indexerTriggered) {
@@ -64,18 +60,18 @@ public class Sort extends Command {
 
         if (DriverStation.getInstance().getAlliance() == Alliance.Blue) {
             if (blue) { // if blue open hatch
-                sorter.setHatch(DoubleSolenoid.Value.kReverse);
+                sorter.setHatch(DoubleSolenoid.Value.kForward);
                 hatchTimer.start();
             } else if (hatchTimer.hasPeriodPassed(0.5)) { // else open door
-                sorter.setHatch(DoubleSolenoid.Value.kForward);
+                sorter.setHatch(DoubleSolenoid.Value.kReverse);
                 hatchTimer.stop();
             }
         } else if (DriverStation.getInstance().getAlliance() == Alliance.Red) {
             if (red) { // if red open hatch
-                sorter.setHatch(DoubleSolenoid.Value.kReverse);
+                sorter.setHatch(DoubleSolenoid.Value.kForward);
                 hatchTimer.start();
             } else if (hatchTimer.hasPeriodPassed(0.5)) { // else open door
-                sorter.setHatch(DoubleSolenoid.Value.kForward);
+                sorter.setHatch(DoubleSolenoid.Value.kReverse);
                 hatchTimer.stop();
             }
         }

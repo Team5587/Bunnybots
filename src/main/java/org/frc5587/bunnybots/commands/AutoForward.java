@@ -15,12 +15,12 @@ public class AutoForward extends Command {
     @Override
     protected void initialize() {
         timer.start();
-        Robot.driveTrain.driveTrainMove(.5);
+        Robot.driveTrain.driveTrainMove(-.45);
     }
 
     @Override
     protected boolean isFinished() {
-        return timer.hasPeriodPassed(2);
+        return timer.hasPeriodPassed(10);
     }
 
     @Override
