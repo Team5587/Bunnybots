@@ -5,6 +5,7 @@ import org.frc5587.bunnybots.Robot;
 import org.frc5587.lib.TitanDrive;
 import org.frc5587.lib.TitanDrive.DriveSignal;
 
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class ControlDriveTrain extends Command {
@@ -21,7 +22,7 @@ public class ControlDriveTrain extends Command {
     @Override
     protected void execute() {
 
-        DriveSignal energizerBunny = TitanDrive.arcadeDrive(OI.joystick.getY(), -OI.joystick.getX());
+        DriveSignal energizerBunny = TitanDrive.arcadeDrive(OI.xb.getY(Hand.kLeft), -OI.xb.getX(Hand.kLeft));
         Robot.driveTrain.vbusLR(energizerBunny.left, energizerBunny.right);
     }
 
